@@ -15,6 +15,8 @@ class CreateAttendancesTable extends Migration
     {
         Schema::create('attendances', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('emp_id')->unsigned();
+            $table->integer('status_id')->unsigned();
             $table->date('day');
             $table->float('work_hours');
             $table->foreign('emp_id')->references('id')->on('employees')->onDelete('cascade');
@@ -30,6 +32,8 @@ class CreateAttendancesTable extends Migration
      */
     public function down()
     {
+        DB::statement('SET FOREIGN_KEY_CHECKS = 0');
         Schema::dropIfExists('attendances');
+        DB::statement('SET FOREIGN_KEY_CHECKS = 1');
     }
 }
