@@ -14,7 +14,10 @@
                         </div>
                     @endif
 
-                    You are logged in!
+                    <a href="{{url('/employees')}}">View Employees at eSEED</a>
+                    <br>
+                    <br>
+                    <a href="{{route('employees.create')}}">Create New Employee</a>
                 </div>
             </div>
         </div>
