@@ -3,8 +3,9 @@
 @section('content')
     <div class="container">
           @foreach ($emp as $emp)
-              <form action="{{route('employees.update', $emp->id)}}" method="POST">
-                {{method_field('PUT')}} {{ csrf_field() }}
+              <form action="{{route('employees.update', ['id' => $emp->id])}}" method="POST">
+                {{method_field('PUT')}}
+                {{ csrf_field() }}
                 <div class="form-group">
                   <label for="name">Employee Name</label>
                   <input type="text" class="form-control" value="{{$emp->name}}" id="name" placeholder="Enter name" name="emp_name">
@@ -20,7 +21,7 @@
                   <input type="text" class="form-control" value="{{$emp->hire_date}}" id="hire_date" name="emp_hire">
                 </div>
                 <br>
-                <button type="submit" class="btn btn-success">Create Employee</button>
+                <button type="submit" class="btn btn-success">Update Employee</button>
               </form>
           @endforeach
     </div>

@@ -43,10 +43,10 @@ class HrController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required|max:255',
-            'email' => 'required|email',
-            'mobile_no' => 'required|min:4',
-            'hire_date' => 'required'
+            'emp_name' => 'required|max:255',
+            'emp_email' => 'required|email',
+            'emp_mobile' => 'required|min:4',
+            'emp_hire' => 'required'
         ]);
 
         $emp = new Employee();
@@ -91,7 +91,21 @@ class HrController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'emp_name' => 'required',
+            'emp_email' => 'required|email',
+            'emp_mobile' => 'required',
+            'emp_hire' => 'required'
+        ]);
+
+        $empEd = Employee::findOrFail($id);
+        $empEd->name = $request['emp_name'];
+        $empEd->email = $request['emp_email'];
+        $empEd->mobile_no = $request['emp_mobile'];
+        $empEd->hire_date =  $request['emp_hire'];
+
+        $empEd->save();
+        return redirect()->back();
     }
 
     /**
