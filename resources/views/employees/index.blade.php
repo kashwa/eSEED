@@ -20,7 +20,7 @@
               <div class="col">
                 <div class="container" style="margin-top: 20px;">
                   <form id="DeleteBtn" action="{{ route('employees.destroy', ['id' => $emp->id]) }}" method="POST">
-                    <input type="submit" value="delete" style="background-color: #f2134b; color: white" class="button is-outlined" onclick="return confirm('Are you sure, You want to delete Post?')">      {{ method_field('DELETE') }} {!! csrf_field() !!}
+                    <input type="button" value="delete" class="btn btn-outline-danger" onclick="return confirm('Are you sure, You want to delete Post?')">      {{ method_field('DELETE') }} {!! csrf_field() !!}
               
                     <a style="margin-left: 5%" class="btn btn-primary" href="{{route('employees.edit', $emp->id)}}">Edit</a>
                   </form>
