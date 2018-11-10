@@ -56,7 +56,7 @@ class HrController extends Controller
         $emp->hire_date = $request['emp_hire'];
 
         $emp->save();
-        return redirect()->back();
+        return redirect()->route('employees.index');
     }
 
     /**
