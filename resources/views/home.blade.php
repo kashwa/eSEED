@@ -18,6 +18,9 @@
                     <br>
                     <br>
                     <a href="{{route('employees.create')}}">Create New Employee</a>
+                    <br>
+                    <br>
+                    <a href="{{route('employee.attendance')}}">Manage employee attendance</a>
                 </div>
             </div>
         </div>

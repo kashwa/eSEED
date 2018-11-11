@@ -12,6 +12,11 @@ class HrController extends Controller
     {
         $this->request = $request;
     }
+    
+    public function attendance(Request $request)
+    {
+        return view('employees.attendance');
+    }
 
     /**
      * Display a listing of the resource.
