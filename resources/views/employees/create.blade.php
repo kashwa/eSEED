@@ -16,7 +16,7 @@
         <input type="text" class="form-control" id="mobile_no" name="emp_mobile" placeholder="mobile number" required>
         <br>
         <label for="hire_date">Hire Date: </label>
-        <input type="text" class="form-control" id="hire_date" name="emp_hire" required>
+        <input type="date" class="form-control" id="hire_date" name="emp_hire" required>
       </div>
       <br>
       <button type="submit" class="btn btn-success">Create Employee</button>
