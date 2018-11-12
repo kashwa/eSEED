@@ -17,6 +17,8 @@ Route::get('/', function () {
 
 Route::get('/attendance', 'HrController@attendance')->name('employee.attendance');
 
+Route::post('/submit', 'HrController@submitAttendance')->name('submit');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

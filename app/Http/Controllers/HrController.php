@@ -13,8 +13,7 @@ class HrController extends Controller
         $this->request = $request;
     }
     /**
-     * let Hr select an employee,
-     * and select a date, then fill attendance.
+     * return view to submit attendance.
      *
      * @param Request $request
      * @return void
@@ -24,6 +23,17 @@ class HrController extends Controller
         $emp = Employee::all();
 
         return view('employees.attendance')->withEmployees($emp);
+    }
+
+    /**
+     * let Hr select employee and a date,
+     * then apply attendance function.
+     *
+     * @return void
+     */
+    public function submitAttendance(Request $request, $id)
+    {
+        
     }
 
     /**
