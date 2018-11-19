@@ -4,7 +4,17 @@
   <div class="title"><strong><h2>Manage Attendance</h2></strong></div>
   <hr>
   <div class="container">
-    <?php $emp = array_column($employees, 'id'); ?>
+    <?php /*$emp = array_column($employees->$id);*/ /*echo dd($employees->toArray())*/
+      $emps = $employees->toArray();
+      $ids = [];
+      $names = [];
+      foreach ($emps as $key => $value){
+        $ids[] += $value['id'];
+        array_push($names, $value['name']);
+      }
+      // $emp = array_combine($names, $ids);
+      dd($emps[6]['id']);
+    ?>
     <form action="{{route('submit', ['id' => $emp->id])}}" method="POST">
       {{ csrf_field() }}
     <div class="row">
