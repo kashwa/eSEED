@@ -1,20 +1,10 @@
 @extends('layouts.app') 
 
 @section('content')
-  <div class="title"><strong><h2>Manage Attendance</h2></strong></div>
+  <div class="title"><strong><h3>Manage Attendance</h3></strong></div>
   <hr>
   <div class="container">
-    <?php /*$emp = array_column($employees->$id);*/ /*echo dd($employees->toArray())*/
-      $emps = $employees->toArray();
-      $ids = [];
-      $names = [];
-      foreach ($emps as $key => $value){
-        $ids[] += $value['id'];
-        array_push($names, $value['name']);
-      }
-      // $emp = array_combine($names, $ids);
-      dd($emps[6]['id']);
-    ?>
+    {{--  --}}
     <form action="{{route('submit', ['id' => $emp->id])}}" method="POST">
       {{ csrf_field() }}
     <div class="row">
@@ -32,6 +22,11 @@
       <div class="col">
         <label for="hire_date">Select a Date: </label>
         <input type="date" class="form-control" id="hire_date" name="emp_hire" required>
+      </div>
+
+      <div class="col">
+        <label for="work_hours">Work Hours: </label>
+        <input type="text" class="form-control" id="work_hours" name="work_hours" placeholder="ex: 7.50" required>
       </div>
     </div>
     <div class="title"><h3>Status & Attendance:</h3></div>

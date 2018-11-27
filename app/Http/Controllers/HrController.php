@@ -20,9 +20,9 @@ class HrController extends Controller
      */
     public function attendance(Request $request)
     {
-        $emp = Employee::all();
+        $employees = Employee::all();
 
-        return view('employees.attendance')->withEmployees($emp);
+        return view('employees.attendance')->withEmployees($employees);
     }
 
     /**
