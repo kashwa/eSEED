@@ -4,8 +4,8 @@
   <div class="title"><strong><h3>Manage Attendance</h3></strong></div>
   <hr>
   <div class="container">
-    {{--  --}}
-    <form action="{{route('submit', ['id' => $emp->id])}}" method="POST">
+    {{-- this way is so close, but it sends the first id only! scale it to take the current one --}}
+    <form action="{{route('submit', ['id' => $employees[0]->id])}}" method="POST">
       {{ csrf_field() }}
     <div class="row">
       <div class="col">
@@ -13,7 +13,7 @@
         <label for="Emplouee">Select an Employee</label>
         <select class="form-control" name="emp_data">
           @foreach ($employees as $emp)
-              <option value={{$emp->id}}>{{$emp->name}}</option>
+            <option value={{$emp->id}}>{{$emp->name}}</option>
           @endforeach
         </select>
       </div>  
