@@ -4,8 +4,13 @@
   <div class="title"><strong><h3>Manage Attendance</h3></strong></div>
   <hr>
   <div class="container">
-    {{-- this way is so close, but it sends the first id only! scale it to take the current one --}}
-    <form action="{{route('submit', ['id' => $employees[0]->id])}}" method="POST">
+    <script>
+      $(document).ready(function () {
+        $('select').click(function() { var id = $("option:selected").val();
+        return id;
+      });
+    </script>
+    <form action="{{route('submit', ['id' => id ])}}" method="POST">
       {{ csrf_field() }}
     <div class="row">
       <div class="col">
