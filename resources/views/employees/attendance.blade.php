@@ -5,7 +5,7 @@
   <hr>
   <div class="container">
     {{--  --}}
-    <form action="<?php echo route('submit', @{{id}} ); ?>" method="POST">
+    <form action="<?php echo "route('submit',['id' => :id])"; ?>" method="POST">
       {{ csrf_field() }}
     <div class="row">
       <div class="col">
