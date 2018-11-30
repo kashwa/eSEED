@@ -31,7 +31,7 @@ class HrController extends Controller
      *
      * @return void
      */
-    public function submitAttendance(Request $request, $id)
+    public function submitAttendance(Request $request)
     {
         return $request->all();
     }
