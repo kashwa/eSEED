@@ -2,7 +2,9 @@
 
 namespace App\Jobs;
 
+use App\Mail\TestMailable;
 use Illuminate\Bus\Queueable;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
@@ -29,6 +31,6 @@ class SendMailJob implements ShouldQueue
      */
     public function handle()
     {
-        //
+        Mail::to('php@example.com')->send(new TestMailable("Hello, I'am Sending message "));
     }
 }
