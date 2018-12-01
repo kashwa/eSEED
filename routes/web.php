@@ -1,5 +1,7 @@
 <?php
 
+use App\Mail\TestMailable;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,6 +15,13 @@
 
 Route::get('/', function () {
     return view('welcome');
+});
+
+Route::get('/mail', function() {
+    // App\Jobs\SendMailJob
+    \App\Jobs\SendMailJob::dispatch();
+    
+    return 'Test Send Message';
 });
 
 Route::get('/attendance', 'HrController@attendance')->name('employee.attendance');
