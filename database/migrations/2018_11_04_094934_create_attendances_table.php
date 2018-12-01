@@ -19,8 +19,8 @@ class CreateAttendancesTable extends Migration
             $table->integer('status_id')->unsigned();
             $table->date('day');
             $table->float('work_hours');
-            $table->foreign('emp_id')->references('id')->on('employees')->onDelete('cascade');
-            $table->foreign('status_id')->references('id')->on('statuses')->onDelete('cascade');
+//            $table->foreign('emp_id')->references('id')->on('employees')->onDelete('cascade');
+//            $table->foreign('status_id')->references('id')->on('statuses')->onDelete('cascade');
             $table->timestamps();
         });
     }
