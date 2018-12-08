@@ -14,6 +14,12 @@ use App\Http\Interfaces\query;
 
 class EmployeeRepository implements EmpRepoInterface{
 
+    protected $emp;
+    public function __construct(Employee $emp)
+    {
+        $this->emp = $emp;
+    }
+
     /**
      * Get all employees from model.
      *
@@ -22,6 +28,6 @@ class EmployeeRepository implements EmpRepoInterface{
     public function getAllEmployees()
     {
         //  Employee::where('name', 'aabed')->get()
-        return Employee::all();
+        return $this->emp->all();
     }
 }

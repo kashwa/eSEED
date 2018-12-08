@@ -24,9 +24,9 @@ class EmployeeServiceProvider extends ServiceProvider
     public function register()
     {
         # here i have to bind it ot work with laravel core.
-        $this->app->bind(
-            'App\Http\Interfaces\EmpRepoInterface',
-            'App\Http\Repository\EmployeeRepository'
-        );
+//        $this->app->bind(
+//            'App\Http\Interfaces\EmpRepoInterface',
+//            'App\Http\Repository\EmployeeRepository'
+//        );
     }
 }

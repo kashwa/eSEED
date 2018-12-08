@@ -4,16 +4,42 @@ namespace App\Http\Controllers;
 
 use App\Employee;
 use App\Http\Interfaces\EmpRepoInterface;
+use App\Http\Repository\EmployeeRepository;
 use Illuminate\Http\Request;
 
 class HrController extends Controller
 {
+    protected $empRepo;
 
-    public function __construct(Request $request)
+    public function __construct(Request $request, EmployeeRepository $empRepo)
     {
         $this->request = $request;
+        $this->empRepo = $empRepo;
     }
+
     /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
+        /**
+         * Here i'll apply Repository design pattern.
+         * 1) make:provider
+         * 2) add to /config/app.php
+         * 3) bind in register || try to use it without binding.
+         * **************
+         * 4) write method in interface.
+         * 5) implement it in repo class.
+         * 6) inject interface in controller || try to inject it without binding.
+         */
+
+        $employees = $this->empRepo->getAllEmployees();
+        return view('employees.index')->withEmployees($employees);
+    }
+
+/**
      * return view to submit attendance.
      *
      * @param Request $request
@@ -35,28 +61,6 @@ class HrController extends Controller
     public function submitAttendance(Request $request)
     {
         return $request->all();
-    }
-
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index(EmpRepoInterface $employeeRepository)
-    {
-        /**
-         * Here i'll apply Repository design pattern.
-         * 1) make:provider
-         * 2) add to /config/app.php
-         * 3) bind in register || try to use it without binding.
-         * **************
-         * 4) write method in interface.
-         * 5) implement it in repo class.
-         * 6) inject interface in controller || try to inject it without binding.
-         */
-
-        $employees = $employeeRepository->getAllEmployees();
-        return view('employees.index')->withEmployees($employees);
     }
 
     /**
