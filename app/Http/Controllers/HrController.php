@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Employee;
+use App\Http\Interfaces\EmpRepoInterface;
 use Illuminate\Http\Request;
 
 class HrController extends Controller
@@ -41,9 +42,20 @@ class HrController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(EmpRepoInterface $employeeRepository)
     {
-        $employees = Employee::all();
+        /**
+         * Here i'll apply Repository design pattern.
+         * 1) make:provider
+         * 2) add to /config/app.php
+         * 3) bind in register || try to use it without binding.
+         * **************
+         * 4) write method in interface.
+         * 5) implement it in repo class.
+         * 6) inject interface in controller || try to inject it without binding.
+         */
+
+        $employees = $employeeRepository->getAllEmployees();
         return view('employees.index')->withEmployees($employees);
     }
 
